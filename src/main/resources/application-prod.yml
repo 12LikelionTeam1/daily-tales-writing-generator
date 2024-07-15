@@ -1,0 +1,20 @@
+openai:
+  model: gpt-3.5-turbo
+  api:
+    key: ${OPEN_AI_KEY}
+    url: https://api.openai.com/v1/chat/completions
+app:
+  main-keywords-prompt: |
+    "
+    내가 보낼 글에 대해 키워드를 찾아서 json형식으로 응답해줘.
+    키워드는 생성한 글을 바탕으로 주요한 키워드를 몇가지 추천해서 담아주면 돼. 
+    갯수는 3~5개 정도로 마음대로 추천해줘
+    응답 형식은 다음과 같아.
+    {
+      "keywords" : ["키워드1", "키워드2", "키워드3"]
+    }
+    
+    요약할 글 :
+    "
+token:
+  secret: ${TOKEN_SECRET}
