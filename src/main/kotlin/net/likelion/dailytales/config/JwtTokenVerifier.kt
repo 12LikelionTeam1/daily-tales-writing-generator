@@ -12,13 +12,11 @@ class JwtTokenVerifier(
 ) {
     private val signKey: SecretKey = SecretKeySpec(secret.toByteArray(), "HmacSHA256")
 
-    fun verify(token: String) {
-        println(
-            Jwts.parser()
-                .verifyWith(signKey)
-                .build()
-                .parseSignedClaims(token)
-                .payload["userId"]
-        )
-    }
+fun verify(token: String) {
+    val userId = Jwts.parser()
+        .verifyWith(signKey)
+        .build()
+        .parseSignedClaims(token)
+        .payload["userId"]
+}
 }
