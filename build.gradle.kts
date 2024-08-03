@@ -21,6 +21,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -58,8 +59,8 @@ jib {
     }
     container {
         jvmFlags = listOf(
-            "-Xms512m",
-            "-Xmx512m",
+            "-Xms256m",
+            "-Xmx256m",
             "-Dserver.port=$serverPort",
             "-Dspring.profiles.active=$activeProfile"
         )
